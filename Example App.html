@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+<body>
+<form>
+    <input type="text" />
+</form>
+<ul>
+    <!--this is the container for your lists-->
+    <li>just like this</li>
+    <!-- here -->
+</ul>
+
+<script>
+    const form1 = document.querySelector("form");
+    const mainInput = document.querySelector("input");
+    const newList = document.querySelector("ul");
+
+    //use this
+    //mainInput.value = "";
+
+    form1.addEventListener("submit", (e) => {
+        e.preventDefault(); //removes natural behavior of form
+        //alert("Im in");
+        //take the value of the input and store in a variable
+        let value1 = mainInput.value;
+        //create a <li> element and store it in a variable
+        let chunLi = document.createElement("li");
+        //put the value inside the this li tag
+        chunLi.innerText = value1;
+        //.appendChild //newList.appendChild(chunLi)
+        newList.appendChild(chunLi);
+        //can you empty the input tag after submitting?
+        mainInput.value = "";
+    });
+
+    //feature to delete/remove the list item after clicking on it
+    //murder
+    //this is your murder function
+    //you need an idenrifier
+    //e.target is your murderer
+    newList.addEventListener("click", (e) => {
+        let victim = e.target;
+        //we got the victim's identity
+        newList.removeChild(victim);
+    });
+
+
+</script>
+</body>
+</html>
